@@ -1,0 +1,196 @@
+/*
+ * Globals
+ */
+
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: #fff;
+  text-decoration:none;
+}
+
+/* Custom default button */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritance from `body` */
+  background-color: #fff;
+  border: 1px solid #999;
+}
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+  height: 100%;
+  background-color: #262626;
+  padding:0;
+  margin:0;
+}
+body {
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 5px 5px rgba(0,0,0,.5);
+}
+
+/* Extra markup and styles for table-esque vertical and horizontal centering */
+.site-wrapper {
+  display: table;
+  position:relative;
+  width: 100%;
+  height: auto; /* For at least Firefox */
+  min-height: 100%;
+  -webkit-box-shadow: inset 0 0 500px rgba(0,0,0,.6);
+          box-shadow: inset 0 0 500px rgba(0,0,0,.6);
+}
+.site-wrapper-inner {
+  display: table-cell;
+  vertical-align: middle;
+}
+.site-wrapper-profile {
+  vertical-align: middle;
+}
+.cover-container {
+  width = 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Padding for spacing */
+.inner {
+  padding: 2rem;
+}
+
+
+/*
+ * Header
+ */
+
+.masthead {
+  margin-bottom: 0.5rem;
+}
+
+.masthead-brand {
+  padding: 0rem 1rem;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.nav-masthead .nav-link {
+  margin:0px auto;
+  font-size: 16px;
+  font-weight: bold;
+  color: rgba(255,255,255,.5);
+  background-color: transparent;
+  border-bottom: 2px groove transparent;
+}
+
+.nav-masthead .nav-link:hover,
+.nav-masthead .nav-link:focus {
+  border-bottom-color: rgba(255,255,255,.25);
+}
+
+.nav-masthead .nav-link + .nav-link {
+  margin-left: 0rem;
+}
+
+.nav-masthead .active,
+.nav-masthead .active.nav-link:hover,
+.nav-masthead .active.nav-link:focus{
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+@media (min-width: 768px) {
+
+  .masthead {
+      margin-bottom: 3rem;
+  }
+  .masthead-brand {
+    float: left;
+  }
+  .nav-masthead{
+    float: right;
+  }
+  .nav-masthead .nav-link {
+  padding: .3rem 1rem;
+  font-size: 20px;
+  }
+  .nav-masthead .nav-link + .nav-link {
+  margin-left: 0.5rem;
+  }
+
+/*
+ * Cover
+ */
+
+.cover {
+  padding: 0 20px;
+}
+.cover .btn-lg {
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+
+/*
+ * Footer
+ */
+.footcontent{
+padding-bottom:80px;
+}
+
+.mastfoot {
+  position: absolute;
+  bottom: 0;
+  color: #999; /* IE8 proofing */
+  color: rgba(255,255,255,.5);
+}
+
+/*
+ * Affix and center
+ */
+.texts{
+  margin-bottom: 9rem;
+  margin-top: 11rem;
+  width: 70%;
+  vertical-align: middle;
+}
+
+.profilecontainer{
+  padding: 50px 80px;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  /* Pull out the header and footer */
+  .masthead {
+    position: absolute;
+    top: 0;
+  }
+  .profilecontainer{
+  padding: 50px 20px;
+  }
+  /* Handle the widths */
+  .masthead,
+  .mastfoot,
+  .cover-container {
+    width: 85%; /* Must be percentage or pixels for horizontal alignment */
+  }
+}
+
+@media (min-width: 992px) {
+  .masthead,
+  .mastfoot,
+  .cover-container {
+    width: 70%;
+  }
+  .profilecontainer{
+  padding: 50px 60px;
+  }
+}
+

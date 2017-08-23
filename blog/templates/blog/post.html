@@ -1,0 +1,20 @@
+{% extends "personal/header.html" %}
+{% block title %}Duxxi Blog{% endblock %}
+{% block ahome %}{% endblock %}
+{% block ablog %}active{% endblock %}
+
+{% block content %}
+          <div class="container texts">
+    <h3>{{post.title}}</h3>
+    <h6>on {{post.date}}</h6>
+<br>
+    {{post.body|safe|linebreaks}}
+    {{post.get_next_url}}
+<br>
+<h4>
+  <a class="float-left" href="{{post.get_last_url}}">&lt; last</a>
+  <a class="inner" href="/blog">&lt; Back ></a>
+  <a class="float-right" href="{{post.get_next_url}}">next ></a>
+</h4>
+          </div>
+{% endblock %}

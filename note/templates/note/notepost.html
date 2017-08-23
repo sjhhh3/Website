@@ -1,0 +1,20 @@
+{% extends "personal/header.html" %}
+{% block title %}Duxxi Note{% endblock %}
+{% block ahome %}{% endblock %}
+{% block anote %}active{% endblock %}
+
+{% block content %}
+<div class="container texts">
+    <h3>{{notepost.title}}</h3>
+    <h6>on {{notepost.date}}</h6>
+<br>
+    {{notepost.body|safe|linebreaks}}
+
+<br>
+<h4>
+  <a class="float-left" href="{{notepost.get_last_url}}">&lt; last</a>
+  <a class="inner" href="/note">&lt; Back ></a>
+  <a class="float-right" href="{{notepost.get_next_url}}">next ></a>
+</h4>
+</div>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "personal/header.html" %}
+{% block title %}Duxxi Note{% endblock %}
+{% block ahome %}{% endblock %}
+{% block anote %}active{% endblock %}
+{% block content %}
+    {% for notepost in object_list %}
+        <h5>{{ notepost.date|date:"Y-m-d" }}<a href= "{% url 'notepost' notepost.id %}"> {{notepost.title}}</a> </h5>
+    {% endfor %}
+{% endblock %}
