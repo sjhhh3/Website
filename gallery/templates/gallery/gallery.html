@@ -1,0 +1,18 @@
+﻿{% extends "personal/secondheader.html" %}
+{% block title %}Duxxi Gallery{% endblock %}
+{% block acont %}{% endblock %}
+{% block agaly %}active{% endblock %}
+{% block content %}
+  <div class="container gcontainer">
+       <div class="row">
+           {% for photo in photo.all %}
+          <div class="col-12 col-lg-4">
+              <div class="minheight">
+                  <a href="{% url 'photo' photo.id %}"><img src="{{photo.image.url}}" class="img-fluid rounded" width="300" alt="gallery image cap"></a></div>
+            <p class="gallery-text">{{photo.body|safe|linebreaks}}</p>
+          </div>
+                           {% endfor %}
+  </div>
+  </div>
+{% endblock %}
+

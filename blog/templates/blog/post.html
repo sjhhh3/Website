@@ -17,4 +17,39 @@
   <a class="float-right" href="{{post.get_next_url}}">next ></a>
 </h4>
           </div>
+
+<div class="container board">
+                  {% for blogcomment in post.blogcomment_set.all%}
+                  {% if blogcomment.published is True %}
+    <div class="row boardborder">
+        <div class="col-12 col-md-4 boardinfo" id="sidebar">
+            <p>{{blogcomment.author}}</p>
+            <p>on {{ blogcomment.date|date:"Y-m-d H:i:s" }}</p>
+</div>
+        <div  class="col-12 col-md-8">
+            <div class="boardcontent">
+                {{blogcomment.body|safe|linebreaks}}
+            </div>
+          </div>
+    </div>
+                    {% endif %}
+                    {% endfor %}
+<div class="container boardsubmit">
+
+    <h2>Your Comment.</h2>
+          <form method='POST' class="form-create">
+        {% csrf_token %}
+
+        <input class="form-control form-name" name="author" placeholder="Your Name (10 maximum)" required maxlength="10" id="author" />
+
+        <textarea class="form-control" name="body" placeholder="Your Comment
+(maximum 140 characters)" required maxlength="140" id="body"></textarea>
+
+        <button class="btn btn-lg btn-default" type="submit">Submit</button>
+      </form>
+</div>
+</div>
+
+
+
 {% endblock %}

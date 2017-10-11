@@ -1,0 +1,32 @@
+{% extends "personal/secondheader.html" %}
+{% block title %}Duxxi Board{% endblock %}
+{% block acont %}{% endblock %}
+{% block aboad %}active{% endblock %}
+{% block content %}
+<div class="boardbrand"><h1>Discussion Board</h1></div>
+
+          <div class="board container">
+<div class="alert alert-dark alert-dismissible fade show" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <strong>Submitted!</strong> Please wait for 24 hours and let Duxxi admit the post.
+</div>
+              {% for comment in comment.all %}
+              {% if comment.published is True %}
+    <div class="row">
+        <div class="col-12 col-md-4 boardinfo" id="sidebar">
+            <p>{{ comment.date|date:"Y-m-d H:i:s" }}</p>
+            <p>{{comment.author}}</p>
+</div>
+        <div  class="col-12 col-md-8">
+            <div class="boardcontent">
+                {{comment.body|safe|linebreaks}}
+            </div>
+          </div>
+    </div>
+                {% endif %}
+                {% endfor %}
+          </div>
+<a href="{% url 'commentcreate' %}" class="messagebtn btn btn-lg btn-default">Leave a Message</a>
+{% endblock %}

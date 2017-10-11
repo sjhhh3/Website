@@ -1,0 +1,43 @@
+{% extends "personal/secondheader.html" %}
+{% block title %}Duxxi Blog{% endblock %}
+{% block acont %}{% endblock %}
+{% block ablog %}active{% endblock %}
+
+{% block content %}
+          <div class="container texts">
+    <h3>{{post.title}}</h3>
+    <h6>on {{post.date}}</h6>
+<br>
+    {{post.body|safe|linebreaks}}
+    {{post.get_next_url}}
+<br>
+<h4>
+  <a class="float-left" href="{{post.get_last_url}}">&lt; last</a>
+  <a class="inner" href="/blog">&lt; Back ></a>
+  <a class="float-right" href="{{post.get_next_url}}">next ></a>
+</h4>
+          </div>
+
+<div class="container board">
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <strong>Denied!</strong> Don't try to post some shit.
+</div>
+                  {% for blogcomment in post.blogcomment_set.all %}
+    <div class="row">
+        <div class="col-12 col-md-4 boardinfo" id="sidebar">
+            <p>{{blogcomment.author}}</p>
+            <p>on {{ blogcomment.date|date:"Y-m-d H:i:s" }}</p>
+</div>
+        <div  class="col-12 col-md-8">
+            <div class="boardcontent">
+                {{blogcomment.body|safe|linebreaks}}
+            </div>
+          </div>
+    </div>
+                    {% endfor %}
+          </div>
+<a href="#" class="messagebtn btn btn-lg btn-default">Leave a Comment</a>
+{% endblock %}

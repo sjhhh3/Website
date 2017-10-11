@@ -1,0 +1,66 @@
+﻿{% extends "personal/secondheader.html" %}
+{% block title %}Duxxi Gallery{% endblock %}
+{% block acont %}{% endblock %}
+{% block agaly %}active{% endblock %}
+{% block content %}
+          <div class="container texts">
+    <div class="row">
+
+        <div class="col-12 col-lg-7">
+        {% if photo.width_field < 400 %}
+            <img src="{{photo.image.url}}" class="img-fluid rounded" width="400" alt="gallery image cap">
+        {% else %}
+            <img src="{{photo.image.url}}" class="img-fluid rounded" alt="gallery image cap">
+        {% endif %}
+</div>
+
+        <div  class="col-12 col-lg-5 align-self-center"  id="sidebar">
+            <h4>
+               Post on {{photo.date}}
+                <p></p>
+            {{photo.body|safe|linebreaks}}</h4>
+
+
+<br>
+<h5>
+  <a class="float-left" href="{{photo.get_next_url}}">&lt; last</a>
+  <a class="inner" href="/gallery">&lt; Back ></a>
+  <a class="float-right" href="{{photo.get_last_url}}">next ></a>
+</h5>
+          </div>
+    </div>
+    </div>
+
+<div class="container board">
+                  {% for photocomment in photo.photocomment_set.all %}
+                  {% if photocomment.published is True %}
+    <div class="row boardborder">
+        <div class="col-12 col-md-4 boardinfo" id="commentsidebar">
+            <p>{{photocomment.author}}</p>
+            <p>on {{ photocomment.date|date:"Y-m-d H:i:s" }}</p>
+</div>
+        <div  class="col-12 col-md-8">
+            <div class="boardcontent">
+                {{photocomment.body|safe|linebreaks}}
+            </div>
+          </div>
+    </div>
+                    {% endif %}
+                    {% endfor %}
+<div class="container boardsubmit">
+
+    <h2>Your Comment.</h2>
+          <form method='POST' class="form-create">
+        {% csrf_token %}
+
+        <input class="form-control form-name" name="author" placeholder="Your Name (10 maximum)" required maxlength="10" id="author" />
+
+        <textarea class="form-control" name="body" placeholder="Your Comment
+(maximum 140 characters)" required maxlength="140" id="body"></textarea>
+
+        <button class="btn btn-lg btn-default" type="submit">Submit</button>
+      </form>
+</div>
+</div>
+{% endblock %}
+

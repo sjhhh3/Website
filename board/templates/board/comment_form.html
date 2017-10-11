@@ -1,0 +1,22 @@
+{% extends "personal/secondheader.html" %}
+{% block title %}Duxxi Board{% endblock %}
+{% block acont %}{% endblock %}
+{% block aboad %}active{% endblock %}
+{% block content %}
+
+<div class="container boardsubmit">
+
+    <h1>Leave some words to me.</h1>
+          <form method='POST' class="form-create">
+        {% csrf_token %}
+
+        <input class="form-control form-name" name="author" placeholder="Your Name (10 maximum)" required maxlength="10" id="id_author" />
+
+        <textarea class="form-control" name="body" placeholder="Your Comment
+(maximum 140 characters)" required maxlength="140" id="id_body"></textarea>
+
+        <button class="btn btn-lg btn-default" type="submit">Submit</button>
+      </form>
+</div>
+
+{% endblock %}

@@ -3,6 +3,8 @@ from django.shortcuts import render
 # Create your views here.
 
 def index(request):
+    #print(request.META.get("REMOTE_ADDR"))
+    #print(request.META.get("HTTP_X_FORWARDED_FOR"))
     return render(request,'personal/home.html')
 
 def contact(request):
