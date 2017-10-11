@@ -16,7 +16,10 @@ Including another URLconf
 from django.conf.urls import include,url
 from django.contrib import admin
 from django.conf.urls import handler404, handler500
+from django.http import HttpResponse
 from personal import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -25,7 +28,10 @@ urlpatterns = [
     url(r'^blog/', include('blog.urls')),
     url(r'^note/', include('note.urls')),
     url(r'^myprofile/', include('myprofile.urls')),
-]
+    url(r'^board/', include('board.urls')),
+    url(r'^gallery/', include('gallery.urls')),
+    url(r'^robots.txt', lambda x: HttpResponse("User-Agent: *\nDisallow:/", content_type="text/plain"), name="robots_file"),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 handler404 = views.error404
 handler500 = views.error500

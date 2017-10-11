@@ -6,8 +6,8 @@ from django.core.urlresolvers import reverse
 class Post(models.Model):
     title = models.CharField(max_length=140)
     body = models.TextField()
-    date = models.DateTimeField()
-
+    date = models.DateTimeField(default="")
+    likes = models.IntegerField(default=0)
     def get_next_url(self):
         #try:
             #Post.objects.get(pk=self.pk+1)
@@ -40,3 +40,23 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+
+class BlogComment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    author = models.CharField(max_length=10)
+    address = models.CharField(max_length=60, default='Unknown')
+    date = models.DateTimeField(auto_now_add=True)
+    body = models.CharField(max_length=140)
+    published = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.author
+
+
+
+class Like(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    address = models.CharField(max_length=60, default='Unknown')
+
+    def __str__(self):
+        return self.address + " " + str(self.post.pk)
