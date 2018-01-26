@@ -1,6 +1,6 @@
 http://duxxi.me
 
-My personal website developing code. Constructed by Django, SQLite, HTML, Bootstrap css. 
+My personal website source code. Constructed by Django, SQLite, HTML, Bootstrap css. 
 Deployed at Ubuntu 16.04, DigitalOcean.
 Let me know if you have any questions.
 
