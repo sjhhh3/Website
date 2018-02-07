@@ -1,0 +1,167 @@
+.boardbrand {
+    margin-top: 3rem;
+    vertical-align: middle;
+}
+
+.board {
+    background-color: #3a3a3a;
+    margin-bottom: 1rem;
+    margin-top: 5rem;
+    width: 85%;
+    vertical-align: middle;
+    font-size: 18px;
+}
+
+.boardinfo {
+    padding: 5px 10px 1px 10px;
+    text-align: center;
+}
+
+.boardborder {
+    border-bottom: 3px solid #333;
+}
+
+.boardcontent {
+    padding: 1px 10px 45px 10px;
+    text-align: left;
+}
+
+.boardsubmit {
+    padding: 2px 3px 20px;
+    margin-bottom: 5rem;
+    margin-top: 2rem;
+    width: 80%;
+    vertical-align: middle;
+}
+
+.form-create {
+    max-width: 440px;
+    margin: 0 auto;
+}
+
+.form-control {
+    height: 120px;
+    max-height: 120px;
+    padding: 20px 20px;
+    margin: 20px auto;
+    font-size: 16px;
+}
+
+.form-name {
+    height: 40px;
+}
+
+.gcontainer {
+    margin-bottom: 5rem;
+    margin-top: 1rem;
+    width: 90%;
+    vertical-align: middle;
+}
+
+.minheight {
+    min-height: 300px;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: Center;
+}
+
+.gallery-text {
+    position: absolute;
+    bottom: 0px;
+}
+
+
+.list-group-item{
+    display: inline-grid;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.smnav {
+    padding: 0;
+    display: inline;
+    margin: 20px auto;
+    font-size: 20px;
+    color: rgba(255, 255, 255, .5);
+    border-bottom: 1px solid;
+}
+
+.sidebar-sm{
+    margin-top: 30px;
+}
+
+@media (min-width: 768px) {
+
+    .messagebtn {
+        margin-bottom: 10rem;
+        margin-top: 2rem;
+    }
+
+    .boardbrand {
+        margin-top: 11rem;
+    }
+
+    .boardinfo {
+        padding: 20px 30px;
+    }
+
+    .boardcontent {
+        padding: 20px 30px;
+    }
+
+    .boardsubmit {
+        padding: 20px 30px;
+        margin-bottom: 9rem;
+        margin-top: 1rem;
+    }
+
+    /*
+     * Cover
+     */
+    .cover {
+        padding: 0px 20px;
+    }
+
+    .cover .btn-lg {
+        margin-bottom: 9rem;
+        padding: 10px 20px;
+        font-weight: bold;
+    }
+
+
+    /*
+     * Affix and center
+     */
+    .profilecontainer {
+        padding: 50px 80px;
+        text-align: left;
+    }
+
+    .gcontainer {
+        margin-bottom: 8rem;
+        margin-top: 7rem;
+        width: 70%;
+        vertical-align: middle;
+    }
+
+    .profilecontainer {
+        padding: 50px 20px;
+    }
+
+
+    .list-group-item{
+        display: block;
+        padding: 10px 20px;
+        margin: 5px auto;
+    }
+
+    @media (min-width: 992px) {
+
+        .profilecontainer {
+            padding: 50px 60px;
+        }
+    }
+}
+
