@@ -6,12 +6,12 @@ from django.core.urlresolvers import reverse
 class Post(models.Model):
     title = models.CharField(max_length=140)
     body = models.TextField()
-    date = models.DateTimeField(default="")
-    likes = models.IntegerField(default=0)
+    date = models.DateTimeField()
+
     def get_next_url(self):
         #try:
             #Post.objects.get(pk=self.pk+1)
-            #return reverse('blog:post', kwargs={'pk':self.pk+1})
+            #return reverse('post', kwargs={'pk':self.pk+1})
             #return Post.objects.latest('date')
             #return Post.objects.latest('date').pk
         #except ObjectDoesNotExist:
@@ -20,7 +20,7 @@ class Post(models.Model):
         while i <= max:
             try:
                 Post.objects.get(pk=self.pk + i)
-                return reverse('blog:post', kwargs={'pk':self.pk+i})
+                return reverse('post', kwargs={'pk':self.pk+i})
                 break
             except ObjectDoesNotExist:
                 i += 1
@@ -32,7 +32,7 @@ class Post(models.Model):
         while i < max:
             try:
                 Post.objects.get(pk=self.pk - i)
-                return reverse('blog:post', kwargs={'pk': self.pk - i})
+                return reverse('post', kwargs={'pk': self.pk - i})
                 break
             except ObjectDoesNotExist:
                 i += 1
@@ -40,6 +40,17 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+class Apost(models.Model):
+
+    title = models.CharField(max_length=140)
+    body = models.TextField()
+    date = models.DateTimeField()
+
+    def get_self_url(self):
+        return reverse('apost', kwargs={'pk': self.pk})
+
+    def __str__(self):
+        return self.title
 
 class BlogComment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
@@ -51,12 +62,3 @@ class BlogComment(models.Model):
 
     def __str__(self):
         return self.author
-
-
-
-class Like(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    address = models.CharField(max_length=60, default='Unknown')
-
-    def __str__(self):
-        return self.address + " " + str(self.post.pk)

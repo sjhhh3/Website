@@ -73,7 +73,7 @@
 
 
 .list-group-item{
-    display: inline;
+    display: inline-grid;
     padding: 10px;
     margin: 0 auto;
 }
@@ -89,6 +89,14 @@
 
 .sidebar-sm{
     margin-top: 30px;
+}
+
+.dropdown-menu,
+.dropdown-item {
+    color: #fff;
+    background-color:  #675511;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 @media (min-width: 768px) {

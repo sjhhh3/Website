@@ -1,5 +1,5 @@
 from django.views import generic
-from .models import Post, Like
+from .models import Post, Apost
 from .form import CommentCreate
 from django.shortcuts import render, redirect
 import datetime
@@ -11,6 +11,10 @@ class BlogView(generic.ListView):
     context_object_name = "all_post"
     def get_queryset(self):
         return Post.objects.filter(date__year=today.year, date__month=today.month).order_by("-date")[:25]
+
+class AblogView(generic.DetailView):
+    model = Apost
+    template_name = 'blog/ablog.html'
 
 def MonthView(request, year, month):
     all_posts = Post.objects.filter(date__year=int(year), date__month=int(month)).order_by("-date")[:25]
@@ -41,22 +45,19 @@ def get_ip(request):
         ip = ""
     return ip
 
+
 def PostView(request, pk):
     post = Post.objects.get(pk=pk)
-    like = Like.objects.filter(post=post).count()
-    print(like)
     form = CommentCreate(request.POST)
     if form.is_valid():
         blogcomment = form.save(commit=False)
         blogcomment.post = post
         blogcomment.address = get_ip(request)
-#        post.ips += blogcomment.address + "\n"
         if (len(blogcomment.author)>11 or len(blogcomment.body)>141 or ("<" in blogcomment.body))is False:
             blogcomment.save()
-#            post.save()
             return redirect('/blog/success')
         else:
-            return redirect('/blog/None')
+            return redirect('blog/None')
     else:
         form = CommentCreate()
         template = 'blog/post.html'

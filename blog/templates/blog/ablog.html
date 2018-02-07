@@ -1,0 +1,30 @@
+{% extends "personal/secondheader.html" %}
+{% block title %}Duxxi Blog{% endblock %}
+{% block acont %}{% endblock %}
+{% block ablog %}active{% endblock %}
+{% block content %}
+
+          <div class="container texts">
+    <div class="row">
+
+        <div class="col-12 col-md-3" id="sidebar">
+            <div class="fixeditem">
+            <p></p>
+            <div class="list-group-item" style="background-color: #555511">Content List</div>
+            <a href="/blog/academic/1" class="list-group-item" style="background-color: #675511">Integrated Navigation System</a>
+            <p></p>
+            </div>
+</div>
+        <div  class="col-12 col-md-9">
+            <h1>{{apost.title}}</h1>
+            <h6>on {{apost.date}}</h6>
+
+            <div class="profilecontainer">
+                {{apost.body|safe|linebreaks}}
+            </div>
+          </div>
+
+    </div>
+    </div>
+{% endblock %}
+

@@ -9,7 +9,6 @@
     <h6>on {{post.date}}</h6>
 <br>
     {{post.body|safe|linebreaks}}
-    {{post.get_next_url}}
 <br>
 <h4>
   <a class="float-left" href="{{post.get_last_url}}">&lt; last</a>
@@ -19,7 +18,7 @@
           </div>
 
 <div class="container board">
-                  {% for blogcomment in post.blogcomment_set.all%}
+                  {% for blogcomment in post.blogcomment_set.all %}
                   {% if blogcomment.published is True %}
     <div class="row boardborder">
         <div class="col-12 col-md-4 boardinfo" id="sidebar">
