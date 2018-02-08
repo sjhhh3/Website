@@ -4,6 +4,7 @@
 }
 
 .board {
+    background-color: #3a3a3a;
     margin-bottom: 1rem;
     margin-top: 5rem;
     width: 85%;
@@ -76,6 +77,7 @@
     display: inline-grid;
     padding: 10px;
     margin: 0 auto;
+    background-color: #675511;
 }
 
 .smnav {
@@ -91,12 +93,23 @@
     margin-top: 30px;
 }
 
-.dropdown-menu,
-.dropdown-item {
-    color: #fff;
-    background-color:  #675511;
-    font-size: 14px;
-    font-weight: bold;
+.cover-heading{
+    margin-top: 14px;
+    -webkit-animation: fading linear 5s infinite;;
+    animation: fading linear 5s infinite;
+}
+@-webkit-keyframes fading {
+    0%   {opacity: 0}
+    25%  {opacity: 1}
+    75%  {opacity: 1}
+    100% {opacity: 0}
+}
+
+@keyframes fading {
+    0%   {opacity: 0}
+    25%  {opacity: 1}
+    75%  {opacity: 1}
+    100% {opacity: 0}
 }
 
 @media (min-width: 768px) {
