@@ -1,0 +1,32 @@
+.glyphicon-search {
+    font-size:28px;
+    color:#abcdef;
+}
+button {
+    background-color:transparent;
+}
+.navbar {
+    position:relative;z-index:2;
+    position:fixed;
+    width:inherit;
+    top:0px;
+}
+#map{
+    height: 400px;
+    width: 100%;
+    position:relative;z-index:1;
+    margin-top:60px;
+    display:block;
+}
+.table-responsive{
+    height:250px;
+    background-color:#e9ecef;
+    margin-bottom:0;
+    margin-top:2px;
+}
+.table th, td {
+    width:30%;
+    background-color:#e9ecef;
+    text-align:left;
+    border-bottom:2px solid #abcdef;
+}

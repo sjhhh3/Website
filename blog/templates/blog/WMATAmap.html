@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="../../../static/css/WMATAindex.css">
+    <link rel="stylesheet" type="text/css" href="../../../static/css/WMATAbootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../../static/css/WMATAmap.css">
+    <script type="text/javascript" src="../../../static/js/WMATAjquery.js"></script>
+    <title>Route Map</title>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="search.html">WMATA</a>
+
+    <form class="form-inline mx-sm-2" id="searchform" onkeydown="if(event.keyCode==13){return false;}">
+        <input class="form-control mx-2" type="text" name="Text" style="width: 100px;" placeholder="Search">
+    </form>
+    <button class="glyphicon glyphicon-search my-2 my-sm-0" id="search" style="border:0;"></button>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Content"
+            aria-controls="navcontent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="Content">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href="search.html">Home Search</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="map.html">Near By</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div id="map"><h3>Google Map</h3></div>
+<div style="text-align:center;  background-color:#e9ecef; margin-top:2px; margin-bottom:1px; font-weight:bold">Please
+    select a bus to see details.
+</div>
+<section class="table-responsive">
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Route ID</th>
+            <td id="route">Route</td>
+        </tr>
+        <tr>
+            <th>Vehicle ID</th>
+            <td id="vehicle">Vehicle ID</td>
+        </tr>
+        <tr>
+            <th>Destination to</th>
+            <td id="destination">Destination</td>
+        </tr>
+        <tr>
+            <th>Heading to</th>
+            <td id="direction">Direction</td>
+        </tr>
+
+    </table>
+
+    <div style="text-align:center;  background-color:#e9ecef; margin-top:2px; font-weight:bold"
+         onclick="window.open('search.html','_self')">Back to Search
+    </div>
+</section>
+
+<script type="text/javascript">
+
+        routeurl = window.location.href.split("?");
+        console.log(routeurl);
+        if (routeurl.length != 1 && routeurl[1] != "") {
+            var routenumber = routeurl[1];
+        }
+        else { routenumber = ""}
+            var markers = new Array();
+            var googlemarkers = new Array();
+            var map;
+            //var routenumber = null;
+
+
+</script>
+<script type="text/javascript" src="../../../static/js/WMATAgetjson.js"></script>
+<script type="text/javascript" src="../../../static/js/WMATAgooglemap.js"></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCoXGJE3W4zc5zgPMpKOAV4EhW4NzrofU&callback=initMap">
+</script>
+<script type="text/javascript" src="../../../static/js/WMATApopper.js"></script>
+<script type="text/javascript" src="../../../static/js/WMATAbootstrap.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-104785007-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-104785007-1');
+
+</script>
+
+</body>
+</html>

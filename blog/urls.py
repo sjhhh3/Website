@@ -13,5 +13,8 @@ urlpatterns = [
     url(r'^(?P<year>[0-9]{4})/(?P<month>[0-9]{2})/$', views.MonthView, name='blogmonth'),
     url(r'^None/$',views.BlogNone, name = 'blognone'),
     #DetailView.as_view(model=Post, template_name = "blog/post.html")
+    url(r'^academic/WMATA/home', views.WMATAhome, name='WMATAhome'),
+    url(r'^academic/WMATA/search', views.WMATAsearch, name='WMATAsearch'),
+    url(r'^academic/WMATA/map', views.WMATAmap, name='WMATAmap')
 ]
 

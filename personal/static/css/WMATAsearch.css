@@ -1,0 +1,38 @@
+.glyphicon-search {
+    font-size:28px;
+    color:#abcdef;
+}
+button {
+    background-color:transparent;
+}
+.navbar {
+    position:fixed;
+    width:inherit;
+    top:0px;
+}
+.table{
+    margin-bottom:0;
+    vertical-align:middle;
+    margin-top:60px;
+}
+.table thead th, .table td {
+    background-color:#e9ecef;
+    text-align:center;
+    vertical-align:middle;
+    border-bottom:2px solid #abcdef;
+}
+.route{
+    display:block;
+    width:60px;
+    height:30px;
+    border:2px solid #808080;
+    -webkit-border-radius:20%;
+       -moz-border-radius:20%;
+        -ms-border-radius:20%;
+         -o-border-radius:20%;
+            border-radius:20%;
+    background-color:#0d029b;
+    text-align:center;
+    font-size:16px;
+    color:white;
+}

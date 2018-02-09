@@ -69,3 +69,10 @@ class SuccessView(generic.ListView):
     context_object_name = "all_post"
     def get_queryset(self):
         return Post.objects.filter(date__year=today.year, date__month=today.month).order_by("-date")[:25]
+
+def WMATAhome(request):
+    return render(request, 'blog/WMATAhome.html')
+def WMATAsearch(request):
+    return render(request, 'blog/WMATAsearch.html')
+def WMATAmap(request):
+    return render(request, 'blog/WMATAmap.html')

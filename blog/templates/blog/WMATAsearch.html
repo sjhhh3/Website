@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="../../../static/css/WMATAindex.css">
+    <link rel="stylesheet" type="text/css" href="../../../static/css/WMATAbootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../../static/css/WMATAsearch.css">
+
+    <title>Search</title>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="search.html">WMATA</a>
+
+    <form class="form-inline mx-sm-2" id="searchform" onkeydown="if(event.keyCode==13){return false;}">
+        <input class="form-control mx-2" type="text" name="Text" style="width: 100px;" placeholder="Search">
+    </form>
+    <button class="glyphicon glyphicon-search my-2 my-sm-0" id="search" style="border:0;"></button>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Content"
+            aria-controls="navcontent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="Content">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="search">Home Search<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="map.html">Near By</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<section class="table-responsive">
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Route</th>
+            <th>Destination1</th>
+            <th>Destination2</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr onclick="window.open('map.html?80', '_self')">
+            <td><span class="route">80</span></td>
+            <td>Fort Totten</td>
+            <td>Kennedy Center</td>
+        </tr>
+        <tr onclick="window.open('map.html?D8', '_self')">
+            <td><span class="route">D8</span></td>
+            <td>Washington Hospital Center</td>
+            <td>Union Station</td>
+        </tr>
+        <tr onclick="window.open('map.html?H2', '_self')">
+            <td><span class="route">H2</span></td>
+            <td>Brookland Station</td>
+            <td>Tenleytown Station</td>
+        </tr>
+        <tr onclick="window.open('map.html?H4', '_self')">
+            <td><span class="route">H4</span></td>
+            <td>Brookland Station</td>
+            <td>Tenleytown Station</td>
+        </tr>
+        <tr onclick="window.open('map.html?G8', '_self')">
+            <td><span class="route">G8</span></td>
+            <td>Avondale</td>
+            <td>Farragut Square</td>
+        </tr>
+        <tr onclick="window.open('map.html?H8', '_self')">
+            <td><span class="route">H8</span></td>
+            <td>Rhode Island Ave Station</td>
+            <td>Mt Pleasant</td>
+        </tr>
+        <tr onclick="window.open('map.html?R4', '_self')">
+            <td><span class="route">R4</span></td>
+            <td>Brookland Station</td>
+            <td>Highview</td>
+        </tr>
+        <tr onclick="window.open('map.html?64', '_self')">
+            <td><span class="route">64</span></td>
+            <td>Fort Totton</td>
+            <td>Federal Triangle</td>
+        </tr>
+        <tr onclick="window.open('map.html?P6', '_self')">
+            <td><span class="route">P6</span></td>
+            <td>Rhode Island Ave Station</td>
+            <td>Anacostia Station</td>
+        </tr>
+        <tr onclick="window.open('map.html?G2', '_self')">
+            <td><span class="route">G2</span></td>
+            <td>Howard University</td>
+            <td>Georgetown University</td>
+        </tr>
+
+        </tbody>
+    </table>
+</section>
+<script>
+           $(document).ready(function () {
+               $("#search").click(function () {
+                   data = $("#searchform").serialize();
+                   arr = data.split("=");
+                   var newsearch = arr[1];
+                   //console.log(newsearch == "");
+                   window.location.replace("map.html?" + newsearch);
+               });
+           });
+
+
+</script>
+
+<script type="text/javascript" src="../../../static/js/WMATAjquery.js"></script>
+<script type="text/javascript" src="../../../static/js/WMATApopper.js"></script>
+<script type="text/javascript" src="../../../static/js/WMATAbootstrap.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-104785007-1"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-104785007-1');
+
+</script>
+</body>
+</html>
